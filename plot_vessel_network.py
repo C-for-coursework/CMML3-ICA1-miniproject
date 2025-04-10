@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plot_vessel_network(segments, Q, Ncell, t, branch_rule):
-    plt.figure(figsize=(12, 6))
+    plt.figure(figsize=(6, 6))
     if branch_rule != None:
         plt.title('Flow and Diameter of Network at t = {} using BR{}'.format(t, branch_rule))
     else:
