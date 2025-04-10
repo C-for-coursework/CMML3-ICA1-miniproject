@@ -47,7 +47,7 @@ def compute_conductance(Nseg, Ncell, cell_size, mu, L):
 D, G = compute_conductance(Nseg, Ncell, cell_size, mu, L)
 
 P, Q, tau = solve_for_flow(G, Ncell, Pin, Pout)
-plot_vessel_network(segments, Q, Ncell)
+plot_vessel_network(segments, Q, Ncell, 0, None)
 
 target = 0
 if branch_rule == 1:
@@ -74,4 +74,4 @@ for t in range(Nt):
 
     # Plot only every 20 time steps
     if (t + 1) % 10 == 0:
-        plot_vessel_network(segments, Q, Ncell)
+        plot_vessel_network(segments, Q, Ncell, t+1, branch_rule)
