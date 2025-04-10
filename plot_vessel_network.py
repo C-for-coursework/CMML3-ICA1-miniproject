@@ -1,10 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-def plot_vessel_network(segments, Q, Ncell):
+def plot_vessel_network(segments, Q, Ncell, t, branch_rule):
     plt.figure(figsize=(12, 6))
-    plt.title('Pressure, Flow, Diameter of Network')
+    if branch_rule != None:
+        plt.title('Flow and Diameter of Network at t = {} using BR{}'.format(t, branch_rule))
+    else:
+        plt.title('Flow and Diameter of Network at t = {}'.format(t))
 
     cell_size = 5e-6
 
@@ -32,4 +34,7 @@ def plot_vessel_network(segments, Q, Ncell):
             end = segments[seg + 1]
         plt.plot([start[0], end[0]], [start[1], end[1]], color=color, linewidth=lwidth)
 
+    
+    plt.grid()
+    
     plt.show()
